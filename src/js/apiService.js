@@ -1,14 +1,19 @@
 const axios = require('axios')
 
-// let currentPage= '1'
-// const searchName = 'cat'
+export default {
+    apiKey: '18765895-18a10ce9a19270e66dddd4391',
+    page: 1,
+    search: '', 
+     
+    fetchImg (){   
+       const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.search}&page=${this.page}&per_page=12&key=${this.apiKey}`;
+        return axios.get(url)
+        .then(({data}) => data)
+        .catch(error => {throw error})
+    },
 
-function fetchImg (currentPage=1, searchName){
-    const ApiKey = '18765895-18a10ce9a19270e66dddd4391'
-    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchName}&page=${currentPage}&per_page=12&key=${ApiKey}`
-
-    return axios.get(url)
-    .then(({data}) => data)
+    pageIncrement (){
+        return this.page +=1;
+    }    
 }
 
-export default fetchImg
