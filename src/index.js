@@ -19,12 +19,12 @@ function  searchImg(){
 }
 
 function createGallery(searchName){
-    ref.container.innerHTML = ' '
-    fetchApi.page = 1;
+    ref.container.innerHTML = '';
 
+    fetchApi.page = 1;
     fetchApi.search = searchName;
-    fetchApi
-    .fetchImg()
+
+    fetchApi.fetchImg()
     .then(data => createMarkup(data))
 }
 
@@ -33,13 +33,10 @@ function createMarkup (data){
     ref.container.insertAdjacentHTML('beforeend', markup)
 }
 
-
-
 function searchMore(){
-
     fetchApi.pageIncrement()
 
     fetchApi.fetchImg()
        .then(data => createMarkup(data))
-       .catch(e => console.log(e))
+       .catch(error => console.log(error))
 }
