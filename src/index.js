@@ -3,25 +3,26 @@ import ref from './js/refs'
 import fetchApi from './js/apiService'
 import template from './templates/gallery-template.hbs'
 import modalTemplate from './templates/modal.hbs'
+import btnState from './js/btn-state'
 var debounce = require('lodash.debounce');
+import 'basiclightbox/dist/basicLightbox.min.css'
 const basicLightbox = require('basiclightbox')
 
-ref.form.addEventListener('submit', (e) => e.preventDefault())
-
-const modalImg = basicLightbox.create(
-    `<img class="modal-img" src="" alt="">`
-    )
+preventDefaultForm()
+searchImg()
 
 ref.loadMoreBtn.addEventListener('click', searchMore)
+ref.container.addEventListener('click', (event) => {
+    const originalImgSrc = event.target.dataset.fullsize
+    
+    if (event.target.nodeName === 'IMG') {
+        showModal()
 
-ref.container.addEventListener('click', (e) => {
-    console.dir(e.target);
-    if (e.target.nodeName === 'IMG') {
-    modalImg.show()
+        const modalImg = document.querySelector('.modal-img');
+        modalImg.src = originalImgSrc
     }
 })
 
-searchImg()
 
 function searchImg() {
     ref.input.addEventListener('input', debounce(() => {
@@ -68,25 +69,10 @@ function createMarkup(data) {
     ref.container.insertAdjacentHTML('beforeend', markup)
 }
 
-const btnState = {
-    loaded() {
-        ref.btnText.textContent = 'Load More'
-        ref.spinner.classList.add('is-hidden')
-    },
-
-    loading() {
-        ref.spinner.classList.remove('is-hidden')
-        ref.btnText.textContent = 'Loading...'
-    },
-
-    show() {
-        ref.loadMoreBtn.classList.remove('is-hidden')
-    },
-
-    hide() {
-        ref.loadMoreBtn.classList.add('is-hidden')
-    }
+function preventDefaultForm() {
+    ref.form.addEventListener('submit', (e) => e.preventDefault())
 }
 
-
-// console.log(modalTemplate());
+function showModal(){
+    return basicLightbox.create(modalTemplate()).show()
+}

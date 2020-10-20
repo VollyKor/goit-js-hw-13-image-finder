@@ -110,3 +110,9 @@ margin-bottom: 50px;
 .spinner-border.is-hidden {
   display: none;
 }
+
+
+img:hover{
+  cursor: pointer;
+  outline: 3px solid teal;
+}
