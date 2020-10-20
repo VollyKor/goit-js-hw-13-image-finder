@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -82,9 +83,11 @@ height: 2px;
 width: 100%;
 }
 
-/* .load-more.is-hidden{
+.load-more.is-hidden{
   display: none;
-} */
+}
+
+
 
 .load-more {
 display: block;
@@ -94,4 +97,16 @@ margin-right: auto;
 padding: 5px;
 padding-left: 30px;
 padding-right: 30px;
+margin-bottom: 50px;
+}
+
+
+.spinner-border{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.spinner-border.is-hidden {
+  display: none;
 }
