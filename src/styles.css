@@ -41,13 +41,18 @@ ul {
 }
 
 ul > li {
-  /* height: 300px; */
+  /* height: 400px; */
   margin: 15px
 } 
 .gallery {
-  justify-content: center;
+  /* justify-content: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  /* grid-gap: 2vw; */
+
 }
 
 
@@ -61,6 +66,7 @@ border-radius: 10px;
   min-width: 100%;
   min-height: 130px;
   border-radius: 10px;
+  margin-bottom: 25px;
 }
 
 .stats-item {

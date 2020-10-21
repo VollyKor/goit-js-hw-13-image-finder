@@ -4,6 +4,7 @@ import fetchApi from './js/apiService'
 import template from './templates/gallery-template.hbs'
 import modalTemplate from './templates/modal.hbs'
 import btnState from './js/btn-state'
+import {notFoundNotice, someError} from './js/notofications'
 var debounce = require('lodash.debounce');
 import 'basiclightbox/dist/basicLightbox.min.css'
 const basicLightbox = require('basiclightbox')
@@ -40,10 +41,22 @@ function createGallery(searchName) {
 
     fetchApi.fetchImg()
         .then(data => {
+            const arrayLength = data.hits.length
+            
+            if (arrayLength === 0){
+                notFoundNotice()
+                btnState.hide()
+            }
+            
+            if (arrayLength > 0){
             createMarkup(data)
             btnState.show()
+            }
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error)
+            someError()
+        })
 }
 
 function searchMore() {
