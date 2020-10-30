@@ -12,7 +12,12 @@ const basicLightbox = require('basiclightbox')
 preventDefaultForm()
 searchImg()
 
-ref.loadMoreBtn.addEventListener('click', searchMore)
+ref.loadMoreBtn.addEventListener('click', () => {
+    searchMore()
+    ref.loadMoreBtn.classList.add('is-hidden')
+    lazyLoad(ref.container.lastElementChild)
+})
+
 ref.container.addEventListener('click', (event) => {
     const originalImgSrc = event.target.dataset.fullsize
     
@@ -68,7 +73,6 @@ function searchMore() {
             createMarkup(data)
             btnState.loaded()
 
-            // console.log(document.documentElement.offsetHeight);
             // window.scrollTo({
             //     top: document.documentElement.offsetHeight,
             //     behavior: 'smooth'
@@ -88,4 +92,18 @@ function preventDefaultForm() {
 
 function showModal(){
     return basicLightbox.create(modalTemplate()).show()
+}
+
+
+function lazyLoad (element){
+    const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                console.log('click');
+                searchMore()
+            }
+            // io.disconnect
+        })
+    } )
+    io.observe(element)
 }
