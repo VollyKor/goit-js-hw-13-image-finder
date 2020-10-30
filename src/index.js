@@ -13,9 +13,8 @@ preventDefaultForm()
 searchImg()
 
 ref.loadMoreBtn.addEventListener('click', () => {
-    searchMore()
     ref.loadMoreBtn.classList.add('is-hidden')
-    lazyLoad(ref.container.lastElementChild)
+    searchMore()
 })
 
 ref.container.addEventListener('click', (event) => {
@@ -72,7 +71,7 @@ function searchMore() {
         .then(data => {
             createMarkup(data)
             btnState.loaded()
-
+            io.observe(ref.container.lastElementChild)
             // window.scrollTo({
             //     top: document.documentElement.offsetHeight,
             //     behavior: 'smooth'
@@ -95,15 +94,12 @@ function showModal(){
 }
 
 
-function lazyLoad (element){
     const io = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if(entry.isIntersecting){
                 console.log('click');
                 searchMore()
+                io.disconnect
             }
-            // io.disconnect
         })
     } )
-    io.observe(element)
-}
