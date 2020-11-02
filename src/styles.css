@@ -55,14 +55,15 @@ ul > li {
 
 }
 
-
 .photo-card {
+
   padding: 15px;
   border: solid 4px teal;
 border-radius: 10px;
 }
 
 .photo-card > img {
+max-width: 200px;
   min-width: 100%;
   min-height: 130px;
   border-radius: 10px;
@@ -93,8 +94,6 @@ width: 100%;
   display: none;
 }
 
-
-
 .load-more {
 display: block;
 margin-left: auto;
@@ -106,7 +105,6 @@ padding-right: 30px;
 margin-bottom: 50px;
 }
 
-
 .spinner-border{
   width: 20px;
   height: 20px;
@@ -116,7 +114,6 @@ margin-bottom: 50px;
 .spinner-border.is-hidden {
   display: none;
 }
-
 
 img:hover{
   cursor: pointer;

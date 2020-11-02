@@ -11,6 +11,8 @@ import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
     notice({
       text: 'No results were found. Please enter another name',
       delay: 5000,
+      animation: 'fade',
+      maxTextHeight: null
     })
   }
 
@@ -18,6 +20,8 @@ import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
     error({
       text: 'Somthing happened. Make one more try',
       delay: 5000,
+      animation: 'fade',
+      maxTextHeight: null
     })
   }
 

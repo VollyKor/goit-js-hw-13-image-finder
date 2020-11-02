@@ -16,4 +16,3 @@ export default {
         return this.page +=1;
     }    
 }
-

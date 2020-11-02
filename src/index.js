@@ -8,6 +8,7 @@ import {notFoundNotice, someError} from './js/notofications'
 var debounce = require('lodash.debounce');
 import 'basiclightbox/dist/basicLightbox.min.css'
 const basicLightbox = require('basiclightbox')
+import infiniteLoading from './js/infiniteScroll'
 
 preventDefaultForm()
 searchImg()
@@ -71,7 +72,7 @@ function searchMore() {
         .then(data => {
             createMarkup(data)
             btnState.loaded()
-            io.observe(ref.container.lastElementChild)
+            infiniteLoading(ref.container.lastElementChild, searchMore)
             // window.scrollTo({
             //     top: document.documentElement.offsetHeight,
             //     behavior: 'smooth'
@@ -93,13 +94,3 @@ function showModal(){
     return basicLightbox.create(modalTemplate()).show()
 }
 
-
-    const io = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                console.log('click');
-                searchMore()
-                io.disconnect
-            }
-        })
-    } )
