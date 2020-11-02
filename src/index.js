@@ -29,7 +29,6 @@ ref.container.addEventListener('click', (event) => {
     }
 })
 
-
 function searchImg() {
     ref.input.addEventListener('input', debounce(() => {
         const inputValue = ref.input.value;
