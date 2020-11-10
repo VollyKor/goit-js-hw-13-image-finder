@@ -5,8 +5,10 @@ import template from './templates/gallery-template.hbs'
 import modalTemplate from './templates/modal.hbs'
 import btnState from './js/btn-state'
 import {notFoundNotice, someError} from './js/notofications'
-var debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce'
+// var debounce = require('lodash.debounce');
 import 'basiclightbox/dist/basicLightbox.min.css'
+// import basicLightbox from 'basiclightbox' // не работает !!!
 const basicLightbox = require('basiclightbox')
 import infiniteLoading from './js/infiniteScroll'
 
@@ -46,7 +48,7 @@ function createGallery(searchName) {
     fetchApi.fetchImg()
         .then(data => {
             const arrayLength = data.hits.length
-            
+
             if (arrayLength === 0){
                 notFoundNotice()
                 btnState.hide()
@@ -55,6 +57,10 @@ function createGallery(searchName) {
             if (arrayLength > 0){
             createMarkup(data)
             btnState.show()
+            }
+
+            if (arrayLength < 12){
+            btnState.hide()
             }
         })
         .catch(error => {
@@ -71,7 +77,9 @@ function searchMore() {
         .then(data => {
             createMarkup(data)
             btnState.loaded()
+           if (data.hits.length === 12){
             infiniteLoading(ref.container.lastElementChild, searchMore)
+           }
             // window.scrollTo({
             //     top: document.documentElement.offsetHeight,
             //     behavior: 'smooth'
