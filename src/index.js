@@ -7,10 +7,18 @@ import btnState from './js/btn-state';
 import { notFoundNotice, someError } from './js/notofications';
 import debounce from 'lodash.debounce';
 // var debounce = require('lodash.debounce');
+<<<<<<< Updated upstream
 import 'basiclightbox/dist/basicLightbox.min.css';
 import * as basicLightbox from 'basiclightbox';
 // const basicLightbox = require('basiclightbox')
 import infiniteLoading from './js/infiniteScroll';
+=======
+import 'basiclightbox/dist/basicLightbox.min.css'
+// import basicLightbox from 'basiclightbox' // не работает !!!
+const basicLightbox = require('basiclightbox')
+import infiniteLoading from './js/infiniteScroll'
+import "./js/mansory"
+>>>>>>> Stashed changes
 
 preventDefaultForm();
 searchImg();
