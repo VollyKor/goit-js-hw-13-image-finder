@@ -1,36 +1,15 @@
 import './styles.css';
-import ref from './js/refs'
-import fetchApi from './js/apiService'
-import template from './templates/gallery-template.hbs'
-import modalTemplate from './templates/modal.hbs'
-import btnState from './js/btn-state'
-import {notFoundNotice, someError} from './js/notofications'
-import debounce from 'lodash.debounce'
-// var debounce = require('lodash.debounce');
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+import ref from './js/refs';
+import fetchApi from './js/apiService';
+import template from './templates/gallery-template.hbs';
+import modalTemplate from './templates/modal.hbs';
+import btnState from './js/btn-state';
+import {notFoundNotice, someError} from './js/notofications';
+import debounce from 'lodash.debounce';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import * as basicLightbox from 'basiclightbox';
-// const basicLightbox = require('basiclightbox')
-import infiniteLoading from './js/infiniteScroll';
-=======
-=======
->>>>>>> parent of 4dc4e33... es6 import
-=======
->>>>>>> parent of 4dc4e33... es6 import
-import 'basiclightbox/dist/basicLightbox.min.css'
-// import basicLightbox from 'basiclightbox' // не работает !!!
-const basicLightbox = require('basiclightbox')
+import * as basicLightbox from 'basiclightbox';import 'basiclightbox/dist/basicLightbox.min.css'
 import infiniteLoading from './js/infiniteScroll'
-<<<<<<< HEAD
-<<<<<<< HEAD
 import "./js/mansory"
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 4dc4e33... es6 import
-=======
->>>>>>> parent of 4dc4e33... es6 import
 
 preventDefaultForm()
 searchImg()
@@ -39,7 +18,6 @@ ref.loadMoreBtn.addEventListener('click', () => {
     ref.loadMoreBtn.classList.add('is-hidden')
     searchMore()
 })
-<<<<<<< HEAD
 
 ref.container.addEventListener('click', (event) => {
     const originalImgSrc = event.target.dataset.fullsize
@@ -47,15 +25,6 @@ ref.container.addEventListener('click', (event) => {
     if (event.target.nodeName === 'IMG') {
         showModal()
 
-=======
-
-ref.container.addEventListener('click', (event) => {
-    const originalImgSrc = event.target.dataset.fullsize
-    
-    if (event.target.nodeName === 'IMG') {
-        showModal()
-
->>>>>>> parent of 4dc4e33... es6 import
         const modalImg = document.querySelector('.modal-img');
         modalImg.src = originalImgSrc
     }

@@ -56,6 +56,7 @@
     "core-js": "^3.6.5",
     "debounce": "^1.2.0",
     "handlebars": "^4.7.6",
+    "imagesloaded": "^4.1.4",
     "lodash.debounce": "^4.0.8",
     "masonry-layout": "^4.2.2",
     "material-design-icons": "^3.0.1"
