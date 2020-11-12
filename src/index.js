@@ -8,6 +8,7 @@ import {notFoundNotice, someError} from './js/notofications'
 import debounce from 'lodash.debounce'
 // var debounce = require('lodash.debounce');
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import 'basiclightbox/dist/basicLightbox.min.css';
 import * as basicLightbox from 'basiclightbox';
@@ -16,13 +17,18 @@ import infiniteLoading from './js/infiniteScroll';
 =======
 =======
 >>>>>>> parent of 4dc4e33... es6 import
+=======
+>>>>>>> parent of 4dc4e33... es6 import
 import 'basiclightbox/dist/basicLightbox.min.css'
 // import basicLightbox from 'basiclightbox' // не работает !!!
 const basicLightbox = require('basiclightbox')
 import infiniteLoading from './js/infiniteScroll'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "./js/mansory"
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 4dc4e33... es6 import
 =======
 >>>>>>> parent of 4dc4e33... es6 import
 
@@ -33,6 +39,7 @@ ref.loadMoreBtn.addEventListener('click', () => {
     ref.loadMoreBtn.classList.add('is-hidden')
     searchMore()
 })
+<<<<<<< HEAD
 
 ref.container.addEventListener('click', (event) => {
     const originalImgSrc = event.target.dataset.fullsize
@@ -40,6 +47,15 @@ ref.container.addEventListener('click', (event) => {
     if (event.target.nodeName === 'IMG') {
         showModal()
 
+=======
+
+ref.container.addEventListener('click', (event) => {
+    const originalImgSrc = event.target.dataset.fullsize
+    
+    if (event.target.nodeName === 'IMG') {
+        showModal()
+
+>>>>>>> parent of 4dc4e33... es6 import
         const modalImg = document.querySelector('.modal-img');
         modalImg.src = originalImgSrc
     }
